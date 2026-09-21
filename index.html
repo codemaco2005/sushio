@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-sushio-black">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>SUSHIO | Japanese Sushi. Egyptian Soul.</title>
+    
+    <!-- Meta SEO & Social Sharing -->
+    <meta name="description" content="SUSHIO (سوشيو) - Premium Japanese Sushi with an Egyptian Soul. Fresh rolls, bold fusion flavors, made to order in Egypt. Order direct via WhatsApp.">
+    <meta property="og:title" content="SUSHIO | Japanese Sushi. Egyptian Soul.">
+    <meta property="og:description" content="Experience premium Japanese sushi rolls made fresh daily. View our full menu and order directly on WhatsApp.">
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts: Cormorant Garamond, Plus Jakarta Sans, Noto Sans Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sushio: {
+                            black: '#070707',
+                            dark: '#0e0e0e',
+                            surface: '#161616',
+                            card: '#1c1c1c',
+                            border: '#2a2a2a',
+                            red: '#E50914',
+                            redHover: '#B80710',
+                            gold: '#D4AF37',
+                            muted: '#9e9e9e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        arabic: ['"Noto Sans Arabic"', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Mobile Touch & Scroll Performance Enforcements */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Enforce touch manipulation to remove 300ms double-tap delay */
+        button, a, select, input, .touch-target, [role="button"] {
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* Safe area padding for modern bezel-less smartphones (iPhone Home Indicator) */
+        .pb-safe {
+            padding-bottom: calc(12px + env(safe-area-inset-bottom, 12px));
+        }
+
+        /* Viewport height fix for mobile browsers dynamic address bar */
+        .min-h-dvh {
+            min-height: 100dvh;
+        }
+
+        /* Custom Modern Scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070707;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E50914;
+        }
+
+        /* Hide Horizontal Scrollbar for Fast Mobile Navigation */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Background Grid Pattern */
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(229, 9, 20, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Image Aspect Ratio Placeholder Skeleton to Eliminate Layout Shifts (CLS) */
+        .img-skeleton {
+            background: linear-gradient(90deg, #161616 25%, #222222 50%, #161616 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Smooth Lightbox Zoom Animations */
+        .lightbox-active {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+
+        /* Touch target minimum size helper */
+        .min-touch-target {
+            min-width: 44px;
+            min-height: 44px;
+        }
+    </style>
+</head>
+
+<body class="bg-sushio-black text-gray-100 font-sans antialiased selection:bg-sushio-red selection:text-white pb-24 md:pb-0">
+
+    <!-- 1. TOP SOCIAL & CONTACT BAR -->
+    <header id="top-bar" class="bg-black border-b border-sushio-border/60 text-xs py-2 px-3 sm:px-8 text-gray-400">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Left Side: Restaurant Social Links -->
+            <div class="flex items-center space-x-1 sm:space-x-3">
+                <a id="social-ig-top" href="#" target="_blank" rel="noopener" class="hover:text-sushio-red transition p-2 min-touch-target flex items-center gap-1.5" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                    <span class="hidden sm:inline font-medium">@sushio.eg</span>
+                </a>
+                <a id="social-fb-top" href="#" target="_blank" rel="noopener" class="hover:text-sushio-red transition p-2 min-touch-target flex items-center justify-center" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f text-sm"></i>
+                </a>
+                <a id="social-tt-top" href="#" target="_blank" rel="noopener" class="hover:text-sushio-red transition p-2 min-touch-target flex items-center justify-center" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok text-sm"></i>
+                </a>
+            </div>
+
+            <!-- Right Side: Phone & Quick Order -->
+            <div class="flex items-center space-x-3 font-medium tracking-wide">
+                <a id="top-bar-phone" href="tel:+201000000000" class="hover:text-white transition p-1.5 min-touch-target flex items-center gap-1.5">
+                    <i class="fa-solid fa-phone text-sushio-red text-xs"></i>
+                    <span id="display-phone-top" class="text-xs sm:text-sm font-semibold">+20 100 000 0000</span>
+                </a>
+                <span class="hidden sm:inline text-gray-600">|</span>
+                <button onclick="openWhatsAppGeneral()" class="hidden sm:flex items-center gap-1.5 text-sushio-red hover:underline font-bold text-xs p-1">
+                    <span>Order Now</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. REPLACEABLE PROMOTIONAL AD BANNER -->
+    <section id="promo-banner-container" class="bg-sushio-dark border-b border-sushio-border relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-3 sm:px-8 py-3">
+            <div id="banner-content" class="relative rounded-2xl bg-gradient-to-r from-black via-sushio-surface to-sushio-dark border border-sushio-red/30 p-3.5 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-3.5 overflow-hidden">
+                <!-- Decorative Red Glow Background -->
+                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-sushio-red/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                <div class="flex items-center gap-3.5 text-left z-10 w-full md:w-auto">
+                    <div id="banner-img-wrap" class="w-14 h-14 sm:w-20 sm:h-20 rounded-xl overflow-hidden border border-sushio-red/40 shrink-0 img-skeleton">
+                        <img id="banner-img" src="" alt="Sushi Special Offer" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-0.5">
+                            <span id="banner-badge" class="bg-sushio-red text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded tracking-wider">SPECIAL OFFER</span>
+                            <span class="text-sushio-gold text-[11px] font-semibold uppercase tracking-wider"><i class="fa-solid fa-fire mr-1"></i> SUSHIO Special</span>
+                        </div>
+                        <h3 id="banner-headline" class="text-base sm:text-xl font-bold text-white font-serif tracking-wide leading-snug">THE TASTE YOU'VE BEEN WAITING FOR</h3>
+                        <p id="banner-subtext" class="text-xs text-gray-400 font-light">Fresh ingredients & exclusive chef specials available now!</p>
+                    </div>
+                </div>
+
+                <div class="z-10 w-full md:w-auto flex justify-center">
+                    <button onclick="openWhatsAppGeneral('Hi SUSHIO 👋 I would like to order the Special Offer!')" class="w-full sm:w-auto min-touch-target bg-sushio-red hover:bg-sushio-redHover active:scale-95 text-white px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition duration-200 shadow-md shadow-sushio-red/20 flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>ORDER PROMO NOW</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN NAVIGATION BAR -->
+    <nav class="sticky top-0 z-40 bg-sushio-black/95 backdrop-blur-md border-b border-sushio-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-between">
+            
+            <!-- Restaurant Logo -->
+            <a href="#" class="flex items-center gap-2.5 group min-touch-target" aria-label="SUSHIO Home">
+                <div class="h-10 w-auto flex items-center">
+                    <img id="main-brand-logo" src="" alt="SUSHIO Logo" class="h-9 sm:h-10 w-auto object-contain">
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center space-x-7 text-xs font-semibold tracking-widest uppercase text-gray-300">
+                <a href="#hero" class="hover:text-sushio-red transition p-2">Home</a>
+                <a href="#menu-gallery" class="hover:text-sushio-red transition p-2">Menu</a>
+                <a href="#combos" class="hover:text-sushio-red transition p-2">Offers</a>
+                <a href="#about" class="hover:text-sushio-red transition p-2">Why SUSHIO</a>
+                <a href="#location" class="hover:text-sushio-red transition p-2">Location</a>
+            </div>
+
+            <!-- Desktop Action Button -->
+            <div class="hidden md:flex items-center gap-3">
+                <button onclick="openWhatsAppGeneral()" class="bg-sushio-red/10 border border-sushio-red/50 text-sushio-red hover:bg-sushio-red hover:text-white px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest transition duration-200">
+                    <i class="fa-brands fa-whatsapp mr-1.5 text-sm"></i> WhatsApp Order
+                </button>
+            </div>
+
+            <!-- Mobile Drawer Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden min-touch-target p-2 text-gray-300 hover:text-white flex items-center justify-center rounded-lg active:bg-sushio-surface" aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Links Container -->
+        <div id="mobile-drawer" class="hidden md:hidden bg-sushio-dark border-b border-sushio-border px-5 py-3 space-y-1">
+            <a href="#hero" onclick="toggleMobileDrawer()" class="block min-touch-target text-gray-200 hover:text-sushio-red py-2 text-sm font-medium border-b border-sushio-border/40 flex items-center justify-between">
+                <span>Home</span>
+                <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
+            </a>
+            <a href="#menu-gallery" onclick="toggleMobileDrawer()" class="block min-touch-target text-gray-200 hover:text-sushio-red py-2 text-sm font-medium border-b border-sushio-border/40 flex items-center justify-between">
+                <span>Browse Menu Images</span>
+                <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
+            </a>
+            <a href="#combos" onclick="toggleMobileDrawer()" class="block min-touch-target text-gray-200 hover:text-sushio-red py-2 text-sm font-medium border-b border-sushio-border/40 flex items-center justify-between">
+                <span>Combos & Offers</span>
+                <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
+            </a>
+            <a href="#about" onclick="toggleMobileDrawer()" class="block min-touch-target text-gray-200 hover:text-sushio-red py-2 text-sm font-medium border-b border-sushio-border/40 flex items-center justify-between">
+                <span>Why SUSHIO</span>
+                <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
+            </a>
+            <a href="#location" onclick="toggleMobileDrawer()" class="block min-touch-target text-gray-200 hover:text-sushio-red py-2 text-sm font-medium flex items-center justify-between">
+                <span>Hours & Location</span>
+                <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- 3. HERO SECTION -->
+    <section id="hero" class="relative pt-6 pb-12 md:py-20 bg-grid-pattern overflow-hidden">
+        <div class="absolute top-1/4 left-0 w-80 h-80 bg-sushio-red/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Hero Copy -->
+            <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sushio-surface border border-sushio-border text-xs font-bold text-gray-300">
+                    <span class="w-2 h-2 rounded-full bg-sushio-red animate-ping"></span>
+                    <span>PREMIUM JAPANESE SUSHI</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-black tracking-tight text-white leading-[1.08]">
+                    JAPANESE SUSHI.<br>
+                    <span class="text-sushio-red italic font-normal">EGYPTIAN SOUL.</span>
+                </h1>
+
+                <p class="text-gray-400 text-xs sm:text-base max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    Fresh rolls. Bold fusion glazes. Handcrafted daily to bring friends and family together over an unforgettable dining experience.
+                </p>
+
+                <!-- Action CTAs -->
+                <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+                    <button onclick="openWhatsAppGeneral()" class="w-full sm:w-auto min-touch-target bg-sushio-red hover:bg-sushio-redHover active:scale-95 text-white px-8 py-4 rounded-xl font-bold text-xs tracking-wider uppercase shadow-xl shadow-sushio-red/25 transition duration-200 flex items-center justify-center gap-2.5">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>ORDER ON WHATSAPP</span>
+                    </button>
+
+                    <a href="#menu-gallery" class="w-full sm:w-auto min-touch-target bg-sushio-card hover:bg-sushio-surface active:scale-95 text-gray-200 border border-sushio-border px-8 py-4 rounded-xl font-bold text-xs tracking-wider uppercase transition text-center flex items-center justify-center gap-2">
+                        <span>VIEW MENU IMAGES</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-sushio-red"></i>
+                    </a>
+                </div>
+
+                <!-- Feature Badges -->
+                <div class="pt-4 border-t border-sushio-border/60 grid grid-cols-3 gap-3 text-center lg:text-left max-w-md mx-auto lg:mx-0">
+                    <div>
+                        <div class="text-base font-bold text-white">100% Fresh</div>
+                        <div class="text-[10px] text-gray-500 uppercase">Made Daily</div>
+                    </div>
+                    <div>
+                        <div class="text-base font-bold text-sushio-gold">4.9 ★★★★★</div>
+                        <div class="text-[10px] text-gray-500 uppercase">Customer Rating</div>
+                    </div>
+                    <div>
+                        <div class="text-base font-bold text-white">Express</div>
+                        <div class="text-[10px] text-gray-500 uppercase">Fast Delivery</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image Banner -->
+            <div class="lg:col-span-5 relative">
+                <div class="relative mx-auto max-w-md lg:max-w-none">
+                    <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-sushio-border bg-sushio-card shadow-2xl img-skeleton">
+                        <img id="hero-main-img" src="" alt="SUSHIO Signature Sushi" class="w-full h-[320px] sm:h-[420px] object-cover" loading="eager">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                        
+                        <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-sushio-black/85 backdrop-blur-md border border-sushio-border/80 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-sushio-red uppercase tracking-widest">SIGNATURE ROLL</span>
+                                <h4 class="text-white font-serif font-bold text-base">Volcano Dragon Roll</h4>
+                            </div>
+                            <span class="bg-sushio-red/20 text-sushio-red font-bold text-xs px-2.5 py-1 rounded-lg border border-sushio-red/40">FRESH</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. 3-PAGE VERTICAL MENU IMAGE GALLERY SECTION -->
+    <section id="menu-gallery" class="py-12 bg-sushio-dark border-t border-sushio-border">
+        <div class="max-w-4xl mx-auto px-3 sm:px-6">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-xl mx-auto mb-6">
+                <span class="text-sushio-red font-bold text-xs uppercase tracking-widest">OFFICIAL RESTAURANT MENU</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-1">SUSHIO MENU</h2>
+                <p class="font-arabic text-sushio-gold font-bold text-base mb-2">قائمة الطعام - تصفح الصور الرسمية</p>
+                <div class="w-10 h-0.5 bg-sushio-red mx-auto mb-2"></div>
+                <p class="text-gray-400 text-xs">
+                    Scroll down to browse all 3 menu pages or tap any image to zoom in full screen.
+                </p>
+            </div>
+
+            <!-- Page Navigation Jump Bar (Page 1 | Page 2 | Page 3) -->
+            <div class="sticky top-[57px] z-30 bg-sushio-dark/95 backdrop-blur-md py-2.5 border-y border-sushio-border mb-6">
+                <div class="flex items-center justify-center gap-2 sm:gap-4 no-scrollbar overflow-x-auto px-2">
+                    <a href="#menu-p1" class="min-touch-target px-4 py-2 rounded-xl bg-sushio-surface border border-sushio-border active:border-sushio-red text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition shrink-0">
+                        <i class="fa-solid fa-book-open text-sushio-red"></i>
+                        <span>Page 1</span>
+                    </a>
+                    <a href="#menu-p2" class="min-touch-target px-4 py-2 rounded-xl bg-sushio-surface border border-sushio-border active:border-sushio-red text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition shrink-0">
+                        <i class="fa-solid fa-book-open text-sushio-red"></i>
+                        <span>Page 2</span>
+                    </a>
+                    <a href="#menu-p3" class="min-touch-target px-4 py-2 rounded-xl bg-sushio-surface border border-sushio-border active:border-sushio-red text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition shrink-0">
+                        <i class="fa-solid fa-book-open text-sushio-red"></i>
+                        <span>Page 3</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Vertical Stack of 3 Menu Images with Skeleton placeholders -->
+            <div class="space-y-8">
+                
+                <!-- MENU PAGE 1 -->
+                <div id="menu-p1" class="rounded-2xl overflow-hidden border border-sushio-border bg-sushio-card shadow-xl">
+                    <div class="bg-sushio-surface px-4 py-2.5 border-b border-sushio-border flex justify-between items-center text-xs font-bold text-gray-300">
+                        <span class="text-sushio-gold flex items-center gap-1.5">
+                            <i class="fa-solid fa-image"></i> MENU PAGE 01
+                        </span>
+                        <button onclick="openLightbox(1)" class="text-sushio-red active:text-white flex items-center gap-1 p-1 min-touch-target">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                            <span class="text-[11px]">Fullscreen Zoom</span>
+                        </button>
+                    </div>
+                    <div class="cursor-pointer overflow-hidden relative min-h-[400px] img-skeleton" onclick="openLightbox(1)">
+                        <img id="menu-img-1" 
+                             src="" 
+                             alt="SUSHIO Menu Page 1" 
+                             class="w-full h-auto object-cover block"
+                             loading="lazy"
+                             onload="this.parentElement.classList.remove('img-skeleton')">
+                    </div>
+                </div>
+
+                <!-- MENU PAGE 2 -->
+                <div id="menu-p2" class="rounded-2xl overflow-hidden border border-sushio-border bg-sushio-card shadow-xl">
+                    <div class="bg-sushio-surface px-4 py-2.5 border-b border-sushio-border flex justify-between items-center text-xs font-bold text-gray-300">
+                        <span class="text-sushio-gold flex items-center gap-1.5">
+                            <i class="fa-solid fa-image"></i> MENU PAGE 02
+                        </span>
+                        <button onclick="openLightbox(2)" class="text-sushio-red active:text-white flex items-center gap-1 p-1 min-touch-target">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                            <span class="text-[11px]">Fullscreen Zoom</span>
+                        </button>
+                    </div>
+                    <div class="cursor-pointer overflow-hidden relative min-h-[400px] img-skeleton" onclick="openLightbox(2)">
+                        <img id="menu-img-2" 
+                             src="" 
+                             alt="SUSHIO Menu Page 2" 
+                             class="w-full h-auto object-cover block"
+                             loading="lazy"
+                             onload="this.parentElement.classList.remove('img-skeleton')">
+                    </div>
+                </div>
+
+                <!-- MENU PAGE 3 -->
+                <div id="menu-p3" class="rounded-2xl overflow-hidden border border-sushio-border bg-sushio-card shadow-xl">
+                    <div class="bg-sushio-surface px-4 py-2.5 border-b border-sushio-border flex justify-between items-center text-xs font-bold text-gray-300">
+                        <span class="text-sushio-gold flex items-center gap-1.5">
+                            <i class="fa-solid fa-image"></i> MENU PAGE 03
+                        </span>
+                        <button onclick="openLightbox(3)" class="text-sushio-red active:text-white flex items-center gap-1 p-1 min-touch-target">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                            <span class="text-[11px]">Fullscreen Zoom</span>
+                        </button>
+                    </div>
+                    <div class="cursor-pointer overflow-hidden relative min-h-[400px] img-skeleton" onclick="openLightbox(3)">
+                        <img id="menu-img-3" 
+                             src="" 
+                             alt="SUSHIO Menu Page 3" 
+                             class="w-full h-auto object-cover block"
+                             loading="lazy"
+                             onload="this.parentElement.classList.remove('img-skeleton')">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- WhatsApp Direct Order Callout -->
+            <div class="mt-8 text-center p-5 bg-sushio-surface rounded-2xl border border-sushio-border">
+                <h3 class="text-base font-serif font-bold text-white mb-1">Pick your items & order on WhatsApp</h3>
+                <p class="text-xs text-gray-400 mb-3">Send your menu items directly to our chat for fast preparation.</p>
+                <button onclick="openWhatsAppGeneral('Hi SUSHIO 👋\nI looked at the menu images and I would like to place an order!')" class="w-full sm:w-auto min-touch-target bg-sushio-red hover:bg-sushio-redHover text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition">
+                    <i class="fa-brands fa-whatsapp text-base mr-1.5"></i> ORDER ON WHATSAPP
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FULLSCREEN TOUCH LIGHTBOX MODAL WITH GESTURES & ZOOM -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col justify-between p-3 sm:p-5 overflow-hidden">
+        
+        <!-- Lightbox Header Controls -->
+        <div class="flex items-center justify-between z-20">
+            <span id="lightbox-counter" class="text-xs font-bold text-sushio-gold tracking-widest uppercase flex items-center gap-2">
+                <i class="fa-solid fa-book-open"></i> MENU PAGE 1 OF 3
+            </span>
+            <div class="flex items-center gap-2">
+                <button onclick="zoomLightbox(1.25)" class="w-10 h-10 rounded-full bg-sushio-surface border border-sushio-border text-white flex items-center justify-center min-touch-target active:bg-sushio-red" aria-label="Zoom In">
+                    <i class="fa-solid fa-magnifying-glass-plus text-base"></i>
+                </button>
+                <button onclick="zoomLightbox(0.8)" class="w-10 h-10 rounded-full bg-sushio-surface border border-sushio-border text-white flex items-center justify-center min-touch-target active:bg-sushio-red" aria-label="Zoom Out">
+                    <i class="fa-solid fa-magnifying-glass-minus text-base"></i>
+                </button>
+                <button onclick="closeLightbox()" class="w-10 h-10 rounded-full bg-sushio-surface border border-sushio-border text-white flex items-center justify-center min-touch-target active:bg-sushio-red" aria-label="Close Lightbox">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Image Container with Drag & Pinch Support -->
+        <div id="lightbox-backdrop" class="flex-1 overflow-auto flex items-center justify-center my-2 p-1" onclick="handleBackdropClick(event)">
+            <img id="lightbox-img" src="" alt="Menu Zoomed View" class="max-w-full h-auto object-contain transition-transform duration-200 select-none cursor-zoom-in">
+        </div>
+
+        <!-- Lightbox Footer Controls -->
+        <div class="flex items-center justify-between gap-2 text-xs text-gray-400 z-20 pt-2 border-t border-sushio-border">
+            <button onclick="prevLightboxPage()" class="min-touch-target px-3 py-2 rounded-lg bg-sushio-surface border border-sushio-border text-white text-xs font-bold flex items-center gap-1">
+                <i class="fa-solid fa-chevron-left text-[10px]"></i> Prev
+            </button>
+            <button onclick="openWhatsAppGeneral('Hi SUSHIO 👋 I am looking at the menu page and want to order!')" class="bg-sushio-red text-white px-4 py-2.5 rounded-xl font-bold uppercase text-xs min-touch-target">
+                <i class="fa-brands fa-whatsapp mr-1 text-sm"></i> Order WhatsApp
+            </button>
+            <button onclick="nextLightboxPage()" class="min-touch-target px-3 py-2 rounded-lg bg-sushio-surface border border-sushio-border text-white text-xs font-bold flex items-center gap-1">
+                Next <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 7. COMBO / SPECIAL OFFER SECTION -->
+    <section id="combos" class="py-12 bg-gradient-to-br from-sushio-surface via-sushio-dark to-black border-y border-sushio-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="rounded-3xl border border-sushio-red/30 p-6 sm:p-10 bg-sushio-card/80 backdrop-blur-md relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                
+                <div class="lg:col-span-7 space-y-3.5">
+                    <span class="bg-sushio-red text-white text-[9px] font-extrabold uppercase px-2.5 py-1 rounded-full tracking-widest">PARTY PACKS & BOXES</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white">MAKE IT A COMBO</h2>
+                    <p class="text-sushio-gold font-serif italic text-base sm:text-lg">More sushi. More flavor. Better value.</p>
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed max-w-xl font-light">
+                        Gathering friends or family? Choose our curated 24-piece or 40-piece combo boxes packed with bestselling fusion rolls, dynamite crisps, and signature dipping glazes.
+                    </p>
+                    <div class="pt-2">
+                        <button onclick="openWhatsAppGeneral('Hi SUSHIO 👋 I would like to inquire about your Combo Offers!')" class="w-full sm:w-auto min-touch-target bg-sushio-red hover:bg-sushio-redHover text-white px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest transition duration-200 shadow-md shadow-sushio-red/20 flex items-center justify-center gap-2.5">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>SEE & ORDER COMBOS</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-2xl overflow-hidden border border-sushio-border img-skeleton">
+                        <img id="combo-section-img" src="" alt="SUSHIO Combo Boxes" class="w-full h-56 object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <span class="bg-black/85 backdrop-blur border border-sushio-gold/50 text-sushio-gold text-xs font-bold px-4 py-2 rounded-xl">
+                                BEST VALUE GUARANTEED
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. WHY SUSHIO (BRAND PILLARS) -->
+    <section id="about" class="py-12 bg-sushio-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="text-center max-w-xl mx-auto mb-8">
+                <span class="text-sushio-red font-bold text-xs uppercase tracking-widest">Our Promise</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-1">THE SUSHIO DIFFERENCE</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Feature 1 -->
+                <div class="p-5 rounded-2xl bg-sushio-surface border border-sushio-border/80 hover:border-sushio-red/40 transition">
+                    <div class="w-10 h-10 rounded-xl bg-sushio-red/10 border border-sushio-red/30 flex items-center justify-center text-sushio-red text-lg mb-3">
+                        <i class="fa-solid fa-fish"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-1">FRESH INGREDIENTS</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed font-light">Carefully sourced prime salmon, yellowfin tuna, and avocados daily.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-5 rounded-2xl bg-sushio-surface border border-sushio-border/80 hover:border-sushio-red/40 transition">
+                    <div class="w-10 h-10 rounded-xl bg-sushio-red/10 border border-sushio-red/30 flex items-center justify-center text-sushio-red text-lg mb-3">
+                        <i class="fa-solid fa-pepper-hot"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-1">BOLD FUSION</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed font-light">Japanese sushi craft paired with daring Egyptian spicy glazes.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-5 rounded-2xl bg-sushio-surface border border-sushio-border/80 hover:border-sushio-red/40 transition">
+                    <div class="w-10 h-10 rounded-xl bg-sushio-red/10 border border-sushio-red/30 flex items-center justify-center text-sushio-red text-lg mb-3">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-1">MADE TO ORDER</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed font-light">Never pre-packaged. Each roll is prepared fresh upon ordering.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="p-5 rounded-2xl bg-sushio-surface border border-sushio-border/80 hover:border-sushio-red/40 transition">
+                    <div class="w-10 h-10 rounded-xl bg-sushio-red/10 border border-sushio-red/30 flex items-center justify-center text-sushio-red text-lg mb-3">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-1">EXPRESS DELIVERY</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed font-light">Insulated packaging ensuring crisp rolls right at your door.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. INSTAGRAM EXPERIENCE SECTION -->
+    <section class="py-12 bg-sushio-dark border-t border-sushio-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="text-center mb-8">
+                <span class="text-sushio-red font-bold text-xs uppercase tracking-widest">Community Vibe</span>
+                <h2 class="text-2xl sm:text-4xl font-serif font-bold text-white mt-1">FOLLOW THE SUSHIO EXPERIENCE</h2>
+                <a id="social-ig-feed" href="#" target="_blank" rel="noopener" class="inline-block text-sushio-gold hover:underline text-xs sm:text-sm font-semibold mt-1">
+                    <i class="fa-brands fa-instagram mr-1"></i> @sushio.eg
+                </a>
+            </div>
+
+            <!-- IG Gallery -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+                <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
+                    <img id="ig-img-1" src="" alt="SUSHIO Instagram 1" class="w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
+                    <img id="ig-img-2" src="" alt="SUSHIO Instagram 2" class="w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
+                    <img id="ig-img-3" src="" alt="SUSHIO Instagram 3" class="w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
+                    <img id="ig-img-4" src="" alt="SUSHIO Instagram 4" class="w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
+                    <img id="ig-img-5" src="" alt="SUSHIO Instagram 5" class="w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
+                    <img id="ig-img-6" src="" alt="SUSHIO Instagram 6" class="w-full h-full object-cover" loading="lazy">
+                </div>
+            </div>
+
+            <div class="text-center mt-6">
+                <a id="btn-ig-follow" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 min-touch-target bg-sushio-surface hover:bg-sushio-card text-gray-200 border border-sushio-border px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition">
+                    <i class="fa-brands fa-instagram text-sushio-red"></i>
+                    <span>Follow @sushio.eg</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. LOCATION & HOURS -->
+    <section id="location" class="py-12 bg-sushio-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                
+                <div class="lg:col-span-5 space-y-5">
+                    <div>
+                        <span class="text-sushio-red font-bold text-xs uppercase tracking-widest">VISIT & ORDER</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-1">LOCATION & HOURS</h2>
+                    </div>
+
+                    <div class="space-y-3.5 text-xs sm:text-sm text-gray-300">
+                        <div class="flex items-start gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-sushio-surface border border-sushio-border flex items-center justify-center text-sushio-red shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Address</h4>
+                                <p id="location-address" class="text-xs text-gray-400">Cairo, Egypt (Tap map below for directions)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-sushio-surface border border-sushio-border flex items-center justify-center text-sushio-red shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Opening Hours</h4>
+                                <p id="location-hours" class="text-xs text-gray-400">Daily: 12:00 PM – 02:00 AM</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-sushio-surface border border-sushio-border flex items-center justify-center text-sushio-red shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Phone Ordering</h4>
+                                <p id="location-phone" class="text-xs text-gray-400">+20 100 000 0000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a id="btn-gmaps" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 min-touch-target bg-sushio-surface hover:bg-sushio-card text-white border border-sushio-border px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition">
+                            <i class="fa-solid fa-map-location-dot text-sushio-red"></i>
+                            <span>Open Google Maps</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Dark Map Card -->
+                <div class="lg:col-span-7">
+                    <div class="rounded-2xl border border-sushio-border overflow-hidden bg-sushio-surface h-64 sm:h-80 relative flex flex-col items-center justify-center text-center p-6 bg-grid-pattern">
+                        <div class="w-14 h-14 rounded-full bg-sushio-red/20 border border-sushio-red flex items-center justify-center text-sushio-red text-xl mb-3 animate-bounce">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-white">SUSHIO RESTAURANT</h3>
+                        <p class="text-xs text-gray-400 mt-1 max-w-xs">Serving sushi rolls for dine-in, takeaway, & express delivery.</p>
+                        <button onclick="openWhatsAppGeneral()" class="mt-4 min-touch-target bg-sushio-red hover:bg-sushio-redHover text-white px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider">
+                            Order Delivery
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FINAL CONVERSION CTA -->
+    <section class="py-12 bg-gradient-to-t from-black to-sushio-dark border-t border-sushio-border">
+        <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
+            <span class="text-sushio-gold font-bold text-xs uppercase tracking-widest">Satisfy Your Craving</span>
+            <h2 class="text-3xl sm:text-5xl font-serif font-black text-white">READY FOR YOUR NEXT ROLL?</h2>
+            <p class="text-gray-400 text-xs sm:text-sm max-w-md mx-auto font-light">
+                Your next sushi obsession is just one message away. Send us your order on WhatsApp now!
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                <button onclick="openWhatsAppGeneral()" class="w-full sm:w-auto min-touch-target bg-sushio-red hover:bg-sushio-redHover active:scale-95 text-white px-8 py-4 rounded-xl font-bold text-xs tracking-wider uppercase shadow-xl shadow-sushio-red/30 transition duration-200 flex items-center justify-center gap-2.5">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>ORDER ON WHATSAPP</span>
+                </button>
+
+                <a id="btn-final-call" href="tel:+201000000000" class="w-full sm:w-auto min-touch-target bg-sushio-surface hover:bg-sushio-card text-white border border-sushio-border px-8 py-4 rounded-xl font-bold text-xs tracking-wider uppercase transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone text-sushio-red"></i>
+                    <span>CALL US DIRECTLY</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. FOOTER -->
+    <footer class="bg-black text-gray-400 text-xs py-10 border-t border-sushio-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            
+            <div class="space-y-3">
+                <div class="h-8 w-auto flex items-center">
+                    <img id="footer-brand-logo" src="" alt="SUSHIO Logo" class="h-8 w-auto object-contain">
+                </div>
+                <p class="text-gray-500 leading-relaxed font-arabic text-[11px]">
+                    سوشيو - المذاق الياباني الفاخر بلمسة مصرية
+                </p>
+                <div class="flex items-center space-x-2 pt-1">
+                    <a id="footer-ig" href="#" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-sushio-surface border border-sushio-border flex items-center justify-center text-gray-300 hover:text-sushio-red min-touch-target" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram text-sm"></i>
+                    </a>
+                    <a id="footer-fb" href="#" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-sushio-surface border border-sushio-border flex items-center justify-center text-gray-300 hover:text-sushio-red min-touch-target" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f text-sm"></i>
+                    </a>
+                    <a id="footer-tt" href="#" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-sushio-surface border border-sushio-border flex items-center justify-center text-gray-300 hover:text-sushio-red min-touch-target" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider mb-2.5">Links</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#hero" class="hover:text-sushio-red transition">Home</a></li>
+                    <li><a href="#menu-gallery" class="hover:text-sushio-red transition">Official Menu</a></li>
+                    <li><a href="#combos" class="hover:text-sushio-red transition">Offers & Combos</a></li>
+                    <li><a href="#about" class="hover:text-sushio-red transition">Why SUSHIO</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider mb-2.5">Contact</h4>
+                <ul class="space-y-1.5 text-gray-400">
+                    <li id="footer-phone-text">Phone: +20 100 000 0000</li>
+                    <li id="footer-wa-text">WhatsApp: +20 100 000 0000</li>
+                    <li id="footer-address-text">Cairo, Egypt</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider mb-2.5">Hours</h4>
+                <p id="footer-hours-text" class="text-gray-400 leading-relaxed">
+                    Monday – Sunday<br>
+                    12:00 PM – 02:00 AM
+                </p>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 border-t border-sushio-border/40 pt-4 flex flex-col sm:flex-row justify-between items-center text-gray-600 text-[11px] gap-2">
+            <p>© 2026 SUSHIO (سوشيو). All rights reserved.</p>
+            <p>Official Website | Mobile-First Dining</p>
+        </div>
+    </footer>
+
+    <!-- STICKY BOTTOM ORDER BAR FOR MOBILE -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-sushio-black/95 backdrop-blur-xl border-t border-sushio-border p-2.5 pb-safe flex items-center gap-2 shadow-2xl">
+        <button onclick="openWhatsAppGeneral()" class="flex-1 min-touch-target bg-sushio-red active:bg-sushio-redHover text-white py-3 px-3 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-sushio-red/30">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span class="font-arabic font-bold text-sm">طلب عبر الواتساب</span>
+        </button>
+
+        <a id="sticky-call-btn" href="tel:+201000000000" class="min-touch-target w-12 h-12 bg-sushio-surface border border-sushio-border rounded-xl flex items-center justify-center text-white shrink-0 active:scale-95 transition" aria-label="Call Restaurant">
+            <i class="fa-solid fa-phone text-sushio-red text-base"></i>
+        </a>
+    </div>
+
+    <!-- Desktop Floating WhatsApp Button -->
+    <button onclick="openWhatsAppGeneral()" class="hidden md:flex fixed bottom-6 right-6 z-50 min-touch-target bg-sushio-red hover:bg-sushio-redHover text-white p-4 rounded-full shadow-2xl shadow-sushio-red/50 hover:scale-105 active:scale-95 transition-all duration-300 items-center justify-center border border-white/20 group" aria-label="WhatsApp Floating Order">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:ml-2 text-xs font-bold uppercase transition-all duration-300">Order Now</span>
+    </button>
+
+    <script>
+        /* --------------------------------------------------
+           SUSHIO CENTRAL CONFIGURATION OBJECT
+           Put your local image filenames or paths inside here:
+        -------------------------------------------------- */
+        const SUSHIO_CONFIG = {
+            brandName: "SUSHIO",
+            arabicName: "",
+            
+            // 1. ضع رابط أو اسم شعار اللوجو الخاص بك هنا (مثلاً: "logo.png")
+            logoUrl: "logo.png", 
+            
+            phone: "+201272207826",
+            whatsAppNumber: "201272207826",
+            address: "Assiut, Egypt",
+            googleMapsUrl: "https://maps.google.com",
+            openingHours: "Daily: 12:00 PM – 02:00 AM",
+            
+            social: {
+                instagram: "https://instagram.com/sushio.eg",
+                facebook: "https://www.facebook.com/profile.php?id=61594309083576",
+                tiktok: "https://tiktok.com/@sushio.eg"
+            },
+            
+            /* 2. صور المنيو الثلاثة (اكتب اسم الملف لكل صفحة مثل: "menu-1.jpg") */
+            menuPages: {
+                1: "2.png", 
+                2: "3.png", 
+                3: "4.png"  
+            },
+
+            /* 3. الصور الأخرى في الموقع (البانر، الهيرو، الكومبو، والانستجرام) */
+            bannerImage: "bannerImage.png",
+            heroImage: "bannerImage.png",
+            comboImage: "bannerImage.png",
+            instagramImages: ["", "", "", "", "", ""]
+        };
+
+        let currentLightboxPage = 1;
+        let currentZoomLevel = 1;
+
+        document.addEventListener("DOMContentLoaded", function() {
+            bindConfigToDOM();
+            setupMobileDrawer();
+        });
+
+        function bindConfigToDOM() {
+            if (SUSHIO_CONFIG.logoUrl) {
+                const mainLogo = document.getElementById("main-brand-logo");
+                if (mainLogo) mainLogo.src = SUSHIO_CONFIG.logoUrl;
+
+                const footerLogo = document.getElementById("footer-brand-logo");
+                if (footerLogo) footerLogo.src = SUSHIO_CONFIG.logoUrl;
+            }
+
+            if (SUSHIO_CONFIG.bannerImage) {
+                const bannerImg = document.getElementById("banner-img");
+                if (bannerImg) bannerImg.src = SUSHIO_CONFIG.bannerImage;
+            }
+
+            if (SUSHIO_CONFIG.heroImage) {
+                const heroImg = document.getElementById("hero-main-img");
+                if (heroImg) heroImg.src = SUSHIO_CONFIG.heroImage;
+            }
+
+            if (SUSHIO_CONFIG.comboImage) {
+                const comboImg = document.getElementById("combo-section-img");
+                if (comboImg) comboImg.src = SUSHIO_CONFIG.comboImage;
+            }
+
+            // Bind Menu Pages
+            for (let i = 1; i <= 3; i++) {
+                const img = document.getElementById(`menu-img-${i}`);
+                if (img && SUSHIO_CONFIG.menuPages[i]) {
+                    img.src = SUSHIO_CONFIG.menuPages[i];
+                }
+            }
+
+            // Bind Instagram Grid Images
+            for (let i = 1; i <= 6; i++) {
+                const igImg = document.getElementById(`ig-img-${i}`);
+                if (igImg && SUSHIO_CONFIG.instagramImages[i - 1]) {
+                    igImg.src = SUSHIO_CONFIG.instagramImages[i - 1];
+                }
+            }
+
+            // Update Phone Call Links & Texts
+            document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+                el.href = `tel:${SUSHIO_CONFIG.phone}`;
+            });
+
+            const topPhone = document.getElementById("display-phone-top");
+            if (topPhone) topPhone.innerText = SUSHIO_CONFIG.phone;
+
+            const locPhone = document.getElementById("location-phone");
+            if (locPhone) locPhone.innerText = SUSHIO_CONFIG.phone;
+
+            const footerPhone = document.getElementById("footer-phone-text");
+            if (footerPhone) footerPhone.innerText = `Phone: ${SUSHIO_CONFIG.phone}`;
+
+            const footerWa = document.getElementById("footer-wa-text");
+            if (footerWa) footerWa.innerText = `WhatsApp: ${SUSHIO_CONFIG.phone}`;
+
+            // Update Social Links
+            const social = SUSHIO_CONFIG.social;
+            ['social-ig-top', 'social-ig-feed', 'btn-ig-follow', 'footer-ig'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.href = social.instagram;
+            });
+            ['social-fb-top', 'footer-fb'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.href = social.facebook;
+            });
+            ['social-tt-top', 'footer-tt'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.href = social.tiktok;
+            });
+
+            const locAddr = document.getElementById("location-address");
+            if (locAddr) locAddr.innerText = SUSHIO_CONFIG.address;
+
+            const locHours = document.getElementById("location-hours");
+            if (locHours) locHours.innerText = SUSHIO_CONFIG.openingHours;
+
+            const gmapsBtn = document.getElementById("btn-gmaps");
+            if (gmapsBtn) gmapsBtn.href = SUSHIO_CONFIG.googleMapsUrl;
+        }
+
+        function setupMobileDrawer() {
+            const btn = document.getElementById("mobile-menu-btn");
+            if (btn) {
+                btn.addEventListener("click", toggleMobileDrawer);
+            }
+        }
+
+        function toggleMobileDrawer() {
+            const drawer = document.getElementById("mobile-drawer");
+            if (drawer) {
+                drawer.classList.toggle("hidden");
+            }
+        }
+
+        function openLightbox(pageIndex) {
+            currentLightboxPage = pageIndex;
+            currentZoomLevel = 1;
+            
+            const modal = document.getElementById("lightbox-modal");
+            const targetImg = document.getElementById("lightbox-img");
+            
+            if (modal && targetImg) {
+                updateLightboxView();
+                modal.classList.add("lightbox-active");
+                document.body.style.overflow = "hidden";
+            }
+        }
+
+        function updateLightboxView() {
+            const targetImg = document.getElementById("lightbox-img");
+            const counter = document.getElementById("lightbox-counter");
+            
+            if (targetImg && SUSHIO_CONFIG.menuPages[currentLightboxPage]) {
+                targetImg.src = SUSHIO_CONFIG.menuPages[currentLightboxPage];
+                targetImg.style.transform = `scale(${currentZoomLevel})`;
+            }
+
+            if (counter) {
+                counter.innerHTML = `<i class="fa-solid fa-book-open"></i> MENU PAGE ${currentLightboxPage} OF 3`;
+            }
+        }
+
+        function zoomLightbox(factor) {
+            currentZoomLevel = Math.min(Math.max(0.8, currentZoomLevel * factor), 3.0);
+            const targetImg = document.getElementById("lightbox-img");
+            if (targetImg) {
+                targetImg.style.transform = `scale(${currentZoomLevel})`;
+            }
+        }
+
+        function nextLightboxPage() {
+            currentLightboxPage = currentLightboxPage >= 3 ? 1 : currentLightboxPage + 1;
+            currentZoomLevel = 1;
+            updateLightboxView();
+        }
+
+        function prevLightboxPage() {
+            currentLightboxPage = currentLightboxPage <= 1 ? 3 : currentLightboxPage - 1;
+            currentZoomLevel = 1;
+            updateLightboxView();
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById("lightbox-modal");
+            if (modal) {
+                modal.classList.remove("lightbox-active");
+                document.body.style.overflow = "auto";
+            }
+        }
+
+        function handleBackdropClick(event) {
+            if (event.target.id === "lightbox-backdrop") {
+                closeLightbox();
+            }
+        }
+
+        function openWhatsAppGeneral(customMessage) {
+            const defaultMsg = "Hi SUSHIO 👋\nأريد الطلب من المنيو | I'd like to place a sushi order.";
+            const finalMsg = customMessage || defaultMsg;
+            const encoded = encodeURIComponent(finalMsg);
+            const url = `https://wa.me/${SUSHIO_CONFIG.whatsAppNumber}?text=${encoded}`;
+            
+            window.open(url, "_blank");
+        }
+    </script>
+</body>
+</html>

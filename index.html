@@ -58,24 +58,20 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Enforce touch manipulation to remove 300ms double-tap delay */
         button, a, select, input, .touch-target, [role="button"] {
             touch-action: manipulation;
             -webkit-user-select: none;
             user-select: none;
         }
 
-        /* Safe area padding for modern bezel-less smartphones (iPhone Home Indicator) */
         .pb-safe {
             padding-bottom: calc(12px + env(safe-area-inset-bottom, 12px));
         }
 
-        /* Viewport height fix for mobile browsers dynamic address bar */
         .min-h-dvh {
             min-height: 100dvh;
         }
 
-        /* Custom Modern Scrollbars */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -91,7 +87,6 @@
             background: #E50914;
         }
 
-        /* Hide Horizontal Scrollbar for Fast Mobile Navigation */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -100,13 +95,11 @@
             scrollbar-width: none;
         }
 
-        /* Background Grid Pattern */
         .bg-grid-pattern {
             background-image: radial-gradient(rgba(229, 9, 20, 0.08) 1px, transparent 1px);
             background-size: 24px 24px;
         }
 
-        /* Image Aspect Ratio Placeholder Skeleton to Eliminate Layout Shifts (CLS) */
         .img-skeleton {
             background: linear-gradient(90deg, #161616 25%, #222222 50%, #161616 75%);
             background-size: 200% 100%;
@@ -117,13 +110,11 @@
             100% { background-position: -200% 0; }
         }
 
-        /* Smooth Lightbox Zoom Animations */
         .lightbox-active {
             opacity: 1 !important;
             pointer-events: auto !important;
         }
 
-        /* Touch target minimum size helper */
         .min-touch-target {
             min-width: 44px;
             min-height: 44px;
@@ -136,7 +127,6 @@
     <!-- 1. TOP SOCIAL & CONTACT BAR -->
     <header id="top-bar" class="bg-black border-b border-sushio-border/60 text-xs py-2 px-3 sm:px-8 text-gray-400">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Left Side: Restaurant Social Links -->
             <div class="flex items-center space-x-1 sm:space-x-3">
                 <a id="social-ig-top" href="#" target="_blank" rel="noopener" class="hover:text-sushio-red transition p-2 min-touch-target flex items-center gap-1.5" aria-label="Instagram">
                     <i class="fa-brands fa-instagram text-sm"></i>
@@ -150,7 +140,6 @@
                 </a>
             </div>
 
-            <!-- Right Side: Phone & Quick Order -->
             <div class="flex items-center space-x-3 font-medium tracking-wide">
                 <a id="top-bar-phone" href="tel:+201000000000" class="hover:text-white transition p-1.5 min-touch-target flex items-center gap-1.5">
                     <i class="fa-solid fa-phone text-sushio-red text-xs"></i>
@@ -169,12 +158,12 @@
     <section id="promo-banner-container" class="bg-sushio-dark border-b border-sushio-border relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-3 sm:px-8 py-3">
             <div id="banner-content" class="relative rounded-2xl bg-gradient-to-r from-black via-sushio-surface to-sushio-dark border border-sushio-red/30 p-3.5 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-3.5 overflow-hidden">
-                <!-- Decorative Red Glow Background -->
                 <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-sushio-red/10 rounded-full blur-2xl pointer-events-none"></div>
 
                 <div class="flex items-center gap-3.5 text-left z-10 w-full md:w-auto">
                     <div id="banner-img-wrap" class="w-14 h-14 sm:w-20 sm:h-20 rounded-xl overflow-hidden border border-sushio-red/40 shrink-0 img-skeleton">
-                        <img id="banner-img" src="" alt="Sushi Special Offer" class="w-full h-full object-cover" loading="lazy">
+                        <!-- ضع مسار صورة البانر هنا مباشرة -->
+                        <img id="banner-img" src="2.webp" alt="Sushi Special Offer" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
                     </div>
                     <div>
                         <div class="flex items-center gap-2 mb-0.5">
@@ -200,14 +189,13 @@
     <nav class="sticky top-0 z-40 bg-sushio-black/95 backdrop-blur-md border-b border-sushio-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-between">
             
-            <!-- Restaurant Logo -->
+            <!-- Restaurant Logo: ضع مسار اللوجو الخاص بك في الـ src هنا -->
             <a href="#" class="flex items-center gap-2.5 group min-touch-target" aria-label="SUSHIO Home">
                 <div class="h-10 w-auto flex items-center">
-                    <img id="main-brand-logo" src="" alt="SUSHIO Logo" class="h-9 sm:h-10 w-auto object-contain">
+                    <img id="main-brand-logo" src="logo.jpeg" alt="SUSHIO Logo" class="h-9 sm:h-10 w-auto object-contain">
                 </div>
             </a>
 
-            <!-- Desktop Navigation Links -->
             <div class="hidden md:flex items-center space-x-7 text-xs font-semibold tracking-widest uppercase text-gray-300">
                 <a href="#hero" class="hover:text-sushio-red transition p-2">Home</a>
                 <a href="#menu-gallery" class="hover:text-sushio-red transition p-2">Menu</a>
@@ -216,20 +204,17 @@
                 <a href="#location" class="hover:text-sushio-red transition p-2">Location</a>
             </div>
 
-            <!-- Desktop Action Button -->
             <div class="hidden md:flex items-center gap-3">
                 <button onclick="openWhatsAppGeneral()" class="bg-sushio-red/10 border border-sushio-red/50 text-sushio-red hover:bg-sushio-red hover:text-white px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest transition duration-200">
                     <i class="fa-brands fa-whatsapp mr-1.5 text-sm"></i> WhatsApp Order
                 </button>
             </div>
 
-            <!-- Mobile Drawer Menu Toggle -->
             <button id="mobile-menu-btn" class="md:hidden min-touch-target p-2 text-gray-300 hover:text-white flex items-center justify-center rounded-lg active:bg-sushio-surface" aria-label="Toggle Navigation Menu">
                 <i class="fa-solid fa-bars text-2xl"></i>
             </button>
         </div>
 
-        <!-- Mobile Drawer Links Container -->
         <div id="mobile-drawer" class="hidden md:hidden bg-sushio-dark border-b border-sushio-border px-5 py-3 space-y-1">
             <a href="#hero" onclick="toggleMobileDrawer()" class="block min-touch-target text-gray-200 hover:text-sushio-red py-2 text-sm font-medium border-b border-sushio-border/40 flex items-center justify-between">
                 <span>Home</span>
@@ -260,7 +245,6 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <!-- Hero Copy -->
             <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sushio-surface border border-sushio-border text-xs font-bold text-gray-300">
                     <span class="w-2 h-2 rounded-full bg-sushio-red animate-ping"></span>
@@ -276,7 +260,6 @@
                     Fresh rolls. Bold fusion glazes. Handcrafted daily to bring friends and family together over an unforgettable dining experience.
                 </p>
 
-                <!-- Action CTAs -->
                 <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
                     <button onclick="openWhatsAppGeneral()" class="w-full sm:w-auto min-touch-target bg-sushio-red hover:bg-sushio-redHover active:scale-95 text-white px-8 py-4 rounded-xl font-bold text-xs tracking-wider uppercase shadow-xl shadow-sushio-red/25 transition duration-200 flex items-center justify-center gap-2.5">
                         <i class="fa-brands fa-whatsapp text-xl"></i>
@@ -289,7 +272,6 @@
                     </a>
                 </div>
 
-                <!-- Feature Badges -->
                 <div class="pt-4 border-t border-sushio-border/60 grid grid-cols-3 gap-3 text-center lg:text-left max-w-md mx-auto lg:mx-0">
                     <div>
                         <div class="text-base font-bold text-white">100% Fresh</div>
@@ -306,11 +288,11 @@
                 </div>
             </div>
 
-            <!-- Hero Image Banner -->
+            <!-- Hero Image Banner: ضع مسار صورة الهيرو هنا في الـ src -->
             <div class="lg:col-span-5 relative">
                 <div class="relative mx-auto max-w-md lg:max-w-none">
                     <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-sushio-border bg-sushio-card shadow-2xl img-skeleton">
-                        <img id="hero-main-img" src="" alt="SUSHIO Signature Sushi" class="w-full h-[320px] sm:h-[420px] object-cover" loading="eager">
+                        <img id="hero-main-img" src="bannerImage.jpg" alt="SUSHIO Signature Sushi" class="w-full h-[320px] sm:h-[420px] object-cover" loading="eager" onload="this.parentElement.classList.remove('img-skeleton')">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                         
                         <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-sushio-black/85 backdrop-blur-md border border-sushio-border/80 flex items-center justify-between">
@@ -331,7 +313,6 @@
     <section id="menu-gallery" class="py-12 bg-sushio-dark border-t border-sushio-border">
         <div class="max-w-4xl mx-auto px-3 sm:px-6">
             
-            <!-- Section Header -->
             <div class="text-center max-w-xl mx-auto mb-6">
                 <span class="text-sushio-red font-bold text-xs uppercase tracking-widest">OFFICIAL RESTAURANT MENU</span>
                 <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-1">SUSHIO MENU</h2>
@@ -342,7 +323,6 @@
                 </p>
             </div>
 
-            <!-- Page Navigation Jump Bar (Page 1 | Page 2 | Page 3) -->
             <div class="sticky top-[57px] z-30 bg-sushio-dark/95 backdrop-blur-md py-2.5 border-y border-sushio-border mb-6">
                 <div class="flex items-center justify-center gap-2 sm:gap-4 no-scrollbar overflow-x-auto px-2">
                     <a href="#menu-p1" class="min-touch-target px-4 py-2 rounded-xl bg-sushio-surface border border-sushio-border active:border-sushio-red text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition shrink-0">
@@ -360,10 +340,9 @@
                 </div>
             </div>
 
-            <!-- Vertical Stack of 3 Menu Images with Skeleton placeholders -->
             <div class="space-y-8">
                 
-                <!-- MENU PAGE 1 -->
+                <!-- MENU PAGE 1: ضع مسار صورة صفحة المنيو الأولى في الـ src -->
                 <div id="menu-p1" class="rounded-2xl overflow-hidden border border-sushio-border bg-sushio-card shadow-xl">
                     <div class="bg-sushio-surface px-4 py-2.5 border-b border-sushio-border flex justify-between items-center text-xs font-bold text-gray-300">
                         <span class="text-sushio-gold flex items-center gap-1.5">
@@ -376,7 +355,7 @@
                     </div>
                     <div class="cursor-pointer overflow-hidden relative min-h-[400px] img-skeleton" onclick="openLightbox(1)">
                         <img id="menu-img-1" 
-                             src="" 
+                             src="2.webp" 
                              alt="SUSHIO Menu Page 1" 
                              class="w-full h-auto object-cover block"
                              loading="lazy"
@@ -384,7 +363,7 @@
                     </div>
                 </div>
 
-                <!-- MENU PAGE 2 -->
+                <!-- MENU PAGE 2: ضع مسار صورة صفحة المنيو الثانية في الـ src -->
                 <div id="menu-p2" class="rounded-2xl overflow-hidden border border-sushio-border bg-sushio-card shadow-xl">
                     <div class="bg-sushio-surface px-4 py-2.5 border-b border-sushio-border flex justify-between items-center text-xs font-bold text-gray-300">
                         <span class="text-sushio-gold flex items-center gap-1.5">
@@ -397,7 +376,7 @@
                     </div>
                     <div class="cursor-pointer overflow-hidden relative min-h-[400px] img-skeleton" onclick="openLightbox(2)">
                         <img id="menu-img-2" 
-                             src="" 
+                             src="3.webp" 
                              alt="SUSHIO Menu Page 2" 
                              class="w-full h-auto object-cover block"
                              loading="lazy"
@@ -405,7 +384,7 @@
                     </div>
                 </div>
 
-                <!-- MENU PAGE 3 -->
+                <!-- MENU PAGE 3: ضع مسار صورة صفحة المنيو الثالثة في الـ src -->
                 <div id="menu-p3" class="rounded-2xl overflow-hidden border border-sushio-border bg-sushio-card shadow-xl">
                     <div class="bg-sushio-surface px-4 py-2.5 border-b border-sushio-border flex justify-between items-center text-xs font-bold text-gray-300">
                         <span class="text-sushio-gold flex items-center gap-1.5">
@@ -418,7 +397,7 @@
                     </div>
                     <div class="cursor-pointer overflow-hidden relative min-h-[400px] img-skeleton" onclick="openLightbox(3)">
                         <img id="menu-img-3" 
-                             src="" 
+                             src="3.webp" 
                              alt="SUSHIO Menu Page 3" 
                              class="w-full h-auto object-cover block"
                              loading="lazy"
@@ -428,7 +407,6 @@
 
             </div>
 
-            <!-- WhatsApp Direct Order Callout -->
             <div class="mt-8 text-center p-5 bg-sushio-surface rounded-2xl border border-sushio-border">
                 <h3 class="text-base font-serif font-bold text-white mb-1">Pick your items & order on WhatsApp</h3>
                 <p class="text-xs text-gray-400 mb-3">Send your menu items directly to our chat for fast preparation.</p>
@@ -440,10 +418,9 @@
         </div>
     </section>
 
-    <!-- FULLSCREEN TOUCH LIGHTBOX MODAL WITH GESTURES & ZOOM -->
+    <!-- FULLSCREEN TOUCH LIGHTBOX MODAL -->
     <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col justify-between p-3 sm:p-5 overflow-hidden">
         
-        <!-- Lightbox Header Controls -->
         <div class="flex items-center justify-between z-20">
             <span id="lightbox-counter" class="text-xs font-bold text-sushio-gold tracking-widest uppercase flex items-center gap-2">
                 <i class="fa-solid fa-book-open"></i> MENU PAGE 1 OF 3
@@ -461,12 +438,10 @@
             </div>
         </div>
 
-        <!-- Image Container with Drag & Pinch Support -->
         <div id="lightbox-backdrop" class="flex-1 overflow-auto flex items-center justify-center my-2 p-1" onclick="handleBackdropClick(event)">
             <img id="lightbox-img" src="" alt="Menu Zoomed View" class="max-w-full h-auto object-contain transition-transform duration-200 select-none cursor-zoom-in">
         </div>
 
-        <!-- Lightbox Footer Controls -->
         <div class="flex items-center justify-between gap-2 text-xs text-gray-400 z-20 pt-2 border-t border-sushio-border">
             <button onclick="prevLightboxPage()" class="min-touch-target px-3 py-2 rounded-lg bg-sushio-surface border border-sushio-border text-white text-xs font-bold flex items-center gap-1">
                 <i class="fa-solid fa-chevron-left text-[10px]"></i> Prev
@@ -500,9 +475,10 @@
                     </div>
                 </div>
 
+                <!-- Combo Image: ضع مسار صورة الكومبو هنا في الـ src -->
                 <div class="lg:col-span-5">
                     <div class="relative rounded-2xl overflow-hidden border border-sushio-border img-skeleton">
-                        <img id="combo-section-img" src="" alt="SUSHIO Combo Boxes" class="w-full h-56 object-cover" loading="lazy">
+                        <img id="combo-section-img" src="bannerImage.jpg" alt="SUSHIO Combo Boxes" class="w-full h-56 object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
                         <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                             <span class="bg-black/85 backdrop-blur border border-sushio-gold/50 text-sushio-gold text-xs font-bold px-4 py-2 rounded-xl">
                                 BEST VALUE GUARANTEED
@@ -515,7 +491,7 @@
         </div>
     </section>
 
-    <!-- 8. WHY SUSHIO (BRAND PILLARS) -->
+    <!-- 8. WHY SUSHIO -->
     <section id="about" class="py-12 bg-sushio-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-8">
             <div class="text-center max-w-xl mx-auto mb-8">
@@ -524,7 +500,6 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <!-- Feature 1 -->
                 <div class="p-5 rounded-2xl bg-sushio-surface border border-sushio-border/80 hover:border-sushio-red/40 transition">
                     <div class="w-10 h-10 rounded-xl bg-sushio-red/10 border border-sushio-red/30 flex items-center justify-center text-sushio-red text-lg mb-3">
                         <i class="fa-solid fa-fish"></i>
@@ -533,7 +508,6 @@
                     <p class="text-xs text-gray-400 leading-relaxed font-light">Carefully sourced prime salmon, yellowfin tuna, and avocados daily.</p>
                 </div>
 
-                <!-- Feature 2 -->
                 <div class="p-5 rounded-2xl bg-sushio-surface border border-sushio-border/80 hover:border-sushio-red/40 transition">
                     <div class="w-10 h-10 rounded-xl bg-sushio-red/10 border border-sushio-red/30 flex items-center justify-center text-sushio-red text-lg mb-3">
                         <i class="fa-solid fa-pepper-hot"></i>
@@ -542,7 +516,6 @@
                     <p class="text-xs text-gray-400 leading-relaxed font-light">Japanese sushi craft paired with daring Egyptian spicy glazes.</p>
                 </div>
 
-                <!-- Feature 3 -->
                 <div class="p-5 rounded-2xl bg-sushio-surface border border-sushio-border/80 hover:border-sushio-red/40 transition">
                     <div class="w-10 h-10 rounded-xl bg-sushio-red/10 border border-sushio-red/30 flex items-center justify-center text-sushio-red text-lg mb-3">
                         <i class="fa-solid fa-hand-holding-heart"></i>
@@ -551,7 +524,6 @@
                     <p class="text-xs text-gray-400 leading-relaxed font-light">Never pre-packaged. Each roll is prepared fresh upon ordering.</p>
                 </div>
 
-                <!-- Feature 4 -->
                 <div class="p-5 rounded-2xl bg-sushio-surface border border-sushio-border/80 hover:border-sushio-red/40 transition">
                     <div class="w-10 h-10 rounded-xl bg-sushio-red/10 border border-sushio-red/30 flex items-center justify-center text-sushio-red text-lg mb-3">
                         <i class="fa-solid fa-bolt"></i>
@@ -574,25 +546,25 @@
                 </a>
             </div>
 
-            <!-- IG Gallery -->
+            <!-- Instagram Grid: ضع مسارات صور الانستجرام الستة في الـ src الخاصة بها -->
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
                 <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
-                    <img id="ig-img-1" src="" alt="SUSHIO Instagram 1" class="w-full h-full object-cover" loading="lazy">
+                    <img id="ig-img-1" src="" alt="SUSHIO Instagram 1" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
                 </div>
                 <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
-                    <img id="ig-img-2" src="" alt="SUSHIO Instagram 2" class="w-full h-full object-cover" loading="lazy">
+                    <img id="ig-img-2" src="" alt="SUSHIO Instagram 2" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
                 </div>
                 <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
-                    <img id="ig-img-3" src="" alt="SUSHIO Instagram 3" class="w-full h-full object-cover" loading="lazy">
+                    <img id="ig-img-3" src="" alt="SUSHIO Instagram 3" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
                 </div>
                 <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
-                    <img id="ig-img-4" src="" alt="SUSHIO Instagram 4" class="w-full h-full object-cover" loading="lazy">
+                    <img id="ig-img-4" src="" alt="SUSHIO Instagram 4" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
                 </div>
                 <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
-                    <img id="ig-img-5" src="" alt="SUSHIO Instagram 5" class="w-full h-full object-cover" loading="lazy">
+                    <img id="ig-img-5" src="" alt="SUSHIO Instagram 5" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
                 </div>
                 <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
-                    <img id="ig-img-6" src="" alt="SUSHIO Instagram 6" class="w-full h-full object-cover" loading="lazy">
+                    <img id="ig-img-6" src="" alt="SUSHIO Instagram 6" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
                 </div>
             </div>
 
@@ -656,7 +628,6 @@
                     </div>
                 </div>
 
-                <!-- Dark Map Card -->
                 <div class="lg:col-span-7">
                     <div class="rounded-2xl border border-sushio-border overflow-hidden bg-sushio-surface h-64 sm:h-80 relative flex flex-col items-center justify-center text-center p-6 bg-grid-pattern">
                         <div class="w-14 h-14 rounded-full bg-sushio-red/20 border border-sushio-red flex items-center justify-center text-sushio-red text-xl mb-3 animate-bounce">
@@ -701,8 +672,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             
             <div class="space-y-3">
+                <!-- Footer Logo: ضع مسار اللوجو هنا أيضاً في الـ src -->
                 <div class="h-8 w-auto flex items-center">
-                    <img id="footer-brand-logo" src="" alt="SUSHIO Logo" class="h-8 w-auto object-contain">
+                    <img id="footer-brand-logo" src="logo.jpeg" alt="SUSHIO Logo" class="h-8 w-auto object-contain">
                 </div>
                 <p class="text-gray-500 leading-relaxed font-arabic text-[11px]">
                     سوشيو - المذاق الياباني الفاخر بلمسة مصرية
@@ -755,7 +727,7 @@
         </div>
     </footer>
 
-    <!-- STICKY BOTTOM ORDER BAR FOR MOBILE -->
+    <!-- MOBILE BOTTOM BAR -->
     <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-sushio-black/95 backdrop-blur-xl border-t border-sushio-border p-2.5 pb-safe flex items-center gap-2 shadow-2xl">
         <button onclick="openWhatsAppGeneral()" class="flex-1 min-touch-target bg-sushio-red active:bg-sushio-redHover text-white py-3 px-3 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-sushio-red/30">
             <i class="fa-brands fa-whatsapp text-lg"></i>
@@ -767,99 +739,37 @@
         </a>
     </div>
 
-    <!-- Desktop Floating WhatsApp Button -->
+    <!-- FLOATING WHATSAPP -->
     <button onclick="openWhatsAppGeneral()" class="hidden md:flex fixed bottom-6 right-6 z-50 min-touch-target bg-sushio-red hover:bg-sushio-redHover text-white p-4 rounded-full shadow-2xl shadow-sushio-red/50 hover:scale-105 active:scale-95 transition-all duration-300 items-center justify-center border border-white/20 group" aria-label="WhatsApp Floating Order">
         <i class="fa-brands fa-whatsapp text-2xl"></i>
         <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:ml-2 text-xs font-bold uppercase transition-all duration-300">Order Now</span>
     </button>
 
     <script>
-        /* --------------------------------------------------
-           SUSHIO CENTRAL CONFIGURATION OBJECT
-           Put your local image filenames or paths inside here:
-        -------------------------------------------------- */
+        // إعدادات النصوص والروابط الأساسية (رقم الهاتف، العنوان، السوشيال ميديا)
         const SUSHIO_CONFIG = {
-            brandName: "SUSHIO",
-            arabicName: "",
-            
-            // 1. ضع رابط أو اسم شعار اللوجو الخاص بك هنا (مثلاً: "logo.png")
-            logoUrl: "logo.png", 
-            
-            phone: "+201272207826",
-            whatsAppNumber: "201272207826",
-            address: "Assiut, Egypt",
+            phone: "+201000000000",
+            whatsAppNumber: "201000000000",
+            address: "Cairo, Egypt",
             googleMapsUrl: "https://maps.google.com",
             openingHours: "Daily: 12:00 PM – 02:00 AM",
-            
             social: {
                 instagram: "https://instagram.com/sushio.eg",
-                facebook: "https://www.facebook.com/profile.php?id=61594309083576",
+                facebook: "https://facebook.com/sushio.eg",
                 tiktok: "https://tiktok.com/@sushio.eg"
-            },
-            
-            /* 2. صور المنيو الثلاثة (اكتب اسم الملف لكل صفحة مثل: "menu-1.jpg") */
-            menuPages: {
-                1: "2.webp", 
-                2: "3.webp", 
-                3: "4.webp"  
-            },
-
-            /* 3. الصور الأخرى في الموقع (البانر، الهيرو، الكومبو، والانستجرام) */
-            bannerImage: "bannerImage.png",
-            heroImage: "bannerImage.png",
-            comboImage: "bannerImage.png",
-            instagramImages: ["", "", "", "", "", ""]
+            }
         };
 
         let currentLightboxPage = 1;
         let currentZoomLevel = 1;
 
+        document.exports = {};
         document.addEventListener("DOMContentLoaded", function() {
-            bindConfigToDOM();
+            bindBasicConfig();
             setupMobileDrawer();
         });
 
-        function bindConfigToDOM() {
-            if (SUSHIO_CONFIG.logoUrl) {
-                const mainLogo = document.getElementById("main-brand-logo");
-                if (mainLogo) mainLogo.src = SUSHIO_CONFIG.logoUrl;
-
-                const footerLogo = document.getElementById("footer-brand-logo");
-                if (footerLogo) footerLogo.src = SUSHIO_CONFIG.logoUrl;
-            }
-
-            if (SUSHIO_CONFIG.bannerImage) {
-                const bannerImg = document.getElementById("banner-img");
-                if (bannerImg) bannerImg.src = SUSHIO_CONFIG.bannerImage;
-            }
-
-            if (SUSHIO_CONFIG.heroImage) {
-                const heroImg = document.getElementById("hero-main-img");
-                if (heroImg) heroImg.src = SUSHIO_CONFIG.heroImage;
-            }
-
-            if (SUSHIO_CONFIG.comboImage) {
-                const comboImg = document.getElementById("combo-section-img");
-                if (comboImg) comboImg.src = SUSHIO_CONFIG.comboImage;
-            }
-
-            // Bind Menu Pages
-            for (let i = 1; i <= 3; i++) {
-                const img = document.getElementById(`menu-img-${i}`);
-                if (img && SUSHIO_CONFIG.menuPages[i]) {
-                    img.src = SUSHIO_CONFIG.menuPages[i];
-                }
-            }
-
-            // Bind Instagram Grid Images
-            for (let i = 1; i <= 6; i++) {
-                const igImg = document.getElementById(`ig-img-${i}`);
-                if (igImg && SUSHIO_CONFIG.instagramImages[i - 1]) {
-                    igImg.src = SUSHIO_CONFIG.instagramImages[i - 1];
-                }
-            }
-
-            // Update Phone Call Links & Texts
+        function bindBasicConfig() {
             document.querySelectorAll('a[href^="tel:"]').forEach(el => {
                 el.href = `tel:${SUSHIO_CONFIG.phone}`;
             });
@@ -876,7 +786,6 @@
             const footerWa = document.getElementById("footer-wa-text");
             if (footerWa) footerWa.innerText = `WhatsApp: ${SUSHIO_CONFIG.phone}`;
 
-            // Update Social Links
             const social = SUSHIO_CONFIG.social;
             ['social-ig-top', 'social-ig-feed', 'btn-ig-follow', 'footer-ig'].forEach(id => {
                 const el = document.getElementById(id);
@@ -915,15 +824,13 @@
             }
         }
 
+        // Lightbox Functions (تعمل بشكل ديناميكي مع صور المنيو الموجودة في الهيكل HTML)
         function openLightbox(pageIndex) {
             currentLightboxPage = pageIndex;
             currentZoomLevel = 1;
-            
+            updateLightboxView();
             const modal = document.getElementById("lightbox-modal");
-            const targetImg = document.getElementById("lightbox-img");
-            
-            if (modal && targetImg) {
-                updateLightboxView();
+            if (modal) {
                 modal.classList.add("lightbox-active");
                 document.body.style.overflow = "hidden";
             }
@@ -931,10 +838,11 @@
 
         function updateLightboxView() {
             const targetImg = document.getElementById("lightbox-img");
+            const sourceImg = document.getElementById(`menu-img-${currentLightboxPage}`);
             const counter = document.getElementById("lightbox-counter");
             
-            if (targetImg && SUSHIO_CONFIG.menuPages[currentLightboxPage]) {
-                targetImg.src = SUSHIO_CONFIG.menuPages[currentLightboxPage];
+            if (targetImg && sourceImg) {
+                targetImg.src = sourceImg.src;
                 targetImg.style.transform = `scale(${currentZoomLevel})`;
             }
 
@@ -981,9 +889,8 @@
             const defaultMsg = "Hi SUSHIO 👋\nأريد الطلب من المنيو | I'd like to place a sushi order.";
             const finalMsg = customMessage || defaultMsg;
             const encoded = encodeURIComponent(finalMsg);
-            const url = `https://wa.me/${SUSHIO_CONFIG.whatsAppNumber}?text=${encoded}`;
-            
-            window.open(url, "_blank");
+            const url = `https://wa.me/${SUSHIO_whatsAppNumber || SUSHIO_CONFIG.whatsAppNumber}?text=${encoded}`;
+            window.open(`https://wa.me/${SUSHIO_CONFIG.whatsAppNumber}?text=${encoded}`, "_blank");
         }
     </script>
 </body>

@@ -6,7 +6,7 @@
     <title>SUSHIO | Japanese Sushi. Egyptian Soul.</title>
     
     <!-- Meta SEO & Social Sharing -->
-    <meta name="description" content="SUSHIO (سوشيو) - Premium Japanese Sushi with an Egyptian Soul. Fresh rolls, bold fusion flavors, made to order in Egypt. Order direct via WhatsApp.">
+    <meta name="description" content="SUSHIO (سوشيو) - Premium Japanese Sushi with an Egyptian Soul. Fresh rolls, bold fusion flavors, made to order in Assiut. Order direct via WhatsApp.">
     <meta property="og:title" content="SUSHIO | Japanese Sushi. Egyptian Soul.">
     <meta property="og:description" content="Experience premium Japanese sushi rolls made fresh daily. View our full menu and order directly on WhatsApp.">
     <meta property="og:image" content="">
@@ -119,10 +119,45 @@
             min-width: 44px;
             min-height: 44px;
         }
+
+        /* Custom Dark Mode Map Filter to match SUSHIO brand identity */
+        .brand-dark-map {
+            filter: invert(100%) hue-rotate(180deg) brightness(85%) contrast(110%);
+        }
     </style>
 </head>
 
 <body class="bg-sushio-black text-gray-100 font-sans antialiased selection:bg-sushio-red selection:text-white pb-24 md:pb-0">
+
+    <!-- 2. REPLACEABLE PROMOTIONAL AD BANNER (TOP) -->
+    <section id="promo-banner-container" class="bg-sushio-dark border-b border-sushio-border relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-3 sm:px-8 py-3">
+            <div id="banner-content" class="relative rounded-2xl bg-gradient-to-r from-black via-sushio-surface to-sushio-dark border border-sushio-red/30 p-3.5 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-3.5 overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-sushio-red/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                <div class="flex items-center gap-3.5 text-left z-10 w-full md:w-auto">
+                    <div id="banner-img-wrap" class="w-14 h-14 sm:w-20 sm:h-20 rounded-xl overflow-hidden border border-sushio-red/40 shrink-0 img-skeleton">
+                        <img id="banner-img" src="7.jpg" alt="Sushi Special Offer" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-0.5">
+                            <span id="banner-badge" class="bg-sushio-red text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded tracking-wider">SPECIAL OFFER</span>
+                            <span class="text-sushio-gold text-[11px] font-semibold uppercase tracking-wider"><i class="fa-solid fa-fire mr-1"></i> SUSHIO Special</span>
+                        </div>
+                        <h3 id="banner-headline" class="text-base sm:text-xl font-bold text-white font-serif tracking-wide leading-snug">THE TASTE YOU'VE BEEN WAITING FOR</h3>
+                        <p id="banner-subtext" class="text-xs text-gray-400 font-light">Fresh ingredients & exclusive chef specials available now!</p>
+                    </div>
+                </div>
+
+                <div class="z-10 w-full md:w-auto flex justify-center">
+                    <button onclick="openWhatsAppGeneral('Hi SUSHIO 👋 I would like to order the Special Offer!')" class="w-full sm:w-auto min-touch-target bg-sushio-red hover:bg-sushio-redHover active:scale-95 text-white px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition duration-200 shadow-md shadow-sushio-red/20 flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>ORDER PROMO NOW</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 1. TOP SOCIAL & CONTACT BAR -->
     <header id="top-bar" class="bg-black border-b border-sushio-border/60 text-xs py-2 px-3 sm:px-8 text-gray-400">
@@ -154,42 +189,11 @@
         </div>
     </header>
 
-    <!-- 2. REPLACEABLE PROMOTIONAL AD BANNER -->
-    <section id="promo-banner-container" class="bg-sushio-dark border-b border-sushio-border relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-3 sm:px-8 py-3">
-            <div id="banner-content" class="relative rounded-2xl bg-gradient-to-r from-black via-sushio-surface to-sushio-dark border border-sushio-red/30 p-3.5 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-3.5 overflow-hidden">
-                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-sushio-red/10 rounded-full blur-2xl pointer-events-none"></div>
-
-                <div class="flex items-center gap-3.5 text-left z-10 w-full md:w-auto">
-                    <div id="banner-img-wrap" class="w-14 h-14 sm:w-20 sm:h-20 rounded-xl overflow-hidden border border-sushio-red/40 shrink-0 img-skeleton">
-                        <!-- ضع مسار صورة البانر هنا مباشرة -->
-                        <img id="banner-img" src="7.jpg" alt="Sushi Special Offer" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2 mb-0.5">
-                            <span id="banner-badge" class="bg-sushio-red text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded tracking-wider">SPECIAL OFFER</span>
-                            <span class="text-sushio-gold text-[11px] font-semibold uppercase tracking-wider"><i class="fa-solid fa-fire mr-1"></i> SUSHIO Special</span>
-                        </div>
-                        <h3 id="banner-headline" class="text-base sm:text-xl font-bold text-white font-serif tracking-wide leading-snug">THE TASTE YOU'VE BEEN WAITING FOR</h3>
-                        <p id="banner-subtext" class="text-xs text-gray-400 font-light">Fresh ingredients & exclusive chef specials available now!</p>
-                    </div>
-                </div>
-
-                <div class="z-10 w-full md:w-auto flex justify-center">
-                    <button onclick="openWhatsAppGeneral('Hi SUSHIO 👋 I would like to order the Special Offer!')" class="w-full sm:w-auto min-touch-target bg-sushio-red hover:bg-sushio-redHover active:scale-95 text-white px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition duration-200 shadow-md shadow-sushio-red/20 flex items-center justify-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-base"></i>
-                        <span>ORDER PROMO NOW</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- MAIN NAVIGATION BAR -->
     <nav class="sticky top-0 z-40 bg-sushio-black/95 backdrop-blur-md border-b border-sushio-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-between">
             
-            <!-- Restaurant Logo: ضع مسار اللوجو الخاص بك في الـ src هنا -->
+            <!-- Restaurant Logo -->
             <a href="#" class="flex items-center gap-2.5 group min-touch-target" aria-label="SUSHIO Home">
                 <div class="h-10 w-auto flex items-center">
                     <img id="main-brand-logo" src="logo.jpeg" alt="SUSHIO Logo" class="h-9 sm:h-10 w-auto object-contain">
@@ -221,7 +225,7 @@
                 <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
             </a>
             <a href="#menu-gallery" onclick="toggleMobileDrawer()" class="block min-touch-target text-gray-200 hover:text-sushio-red py-2 text-sm font-medium border-b border-sushio-border/40 flex items-center justify-between">
-                <span>Browse Menu Images</span>
+                <span>Browse Menu</span>
                 <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
             </a>
             <a href="#combos" onclick="toggleMobileDrawer()" class="block min-touch-target text-gray-200 hover:text-sushio-red py-2 text-sm font-medium border-b border-sushio-border/40 flex items-center justify-between">
@@ -248,7 +252,7 @@
             <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sushio-surface border border-sushio-border text-xs font-bold text-gray-300">
                     <span class="w-2 h-2 rounded-full bg-sushio-red animate-ping"></span>
-                    <span>PREMIUM JAPANESE SUSHI</span>
+                    <span>PREMIUM JAPANESE SUSHI IN ASSIUT</span>
                 </div>
 
                 <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-black tracking-tight text-white leading-[1.08]">
@@ -257,7 +261,7 @@
                 </h1>
 
                 <p class="text-gray-400 text-xs sm:text-base max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
-                    Fresh rolls. Bold fusion glazes. Handcrafted daily to bring friends and family together over an unforgettable dining experience.
+                    Fresh rolls. Bold fusion glazes. Handcrafted daily to bring friends and family together over an unforgettable dining experience in Assiut.
                 </p>
 
                 <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
@@ -267,7 +271,7 @@
                     </button>
 
                     <a href="#menu-gallery" class="w-full sm:w-auto min-touch-target bg-sushio-card hover:bg-sushio-surface active:scale-95 text-gray-200 border border-sushio-border px-8 py-4 rounded-xl font-bold text-xs tracking-wider uppercase transition text-center flex items-center justify-center gap-2">
-                        <span>VIEW MENU IMAGES</span>
+                        <span>VIEW MENU</span>
                         <i class="fa-solid fa-chevron-down text-xs text-sushio-red"></i>
                     </a>
                 </div>
@@ -288,7 +292,7 @@
                 </div>
             </div>
 
-            <!-- Hero Image Banner: ضع مسار صورة الهيرو هنا في الـ src -->
+            <!-- Hero Image Banner -->
             <div class="lg:col-span-5 relative">
                 <div class="relative mx-auto max-w-md lg:max-w-none">
                     <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-sushio-border bg-sushio-card shadow-2xl img-skeleton">
@@ -309,107 +313,63 @@
         </div>
     </section>
 
-    <!-- 5. 3-PAGE VERTICAL MENU IMAGE GALLERY SECTION -->
+    <!-- 5. SEAMLESS VERTICAL MENU GALLERY SECTION (NO PAGES, NO GAPS) -->
     <section id="menu-gallery" class="py-12 bg-sushio-dark border-t border-sushio-border">
-        <div class="max-w-4xl mx-auto px-3 sm:px-6">
+        <div class="max-w-3xl mx-auto px-3 sm:px-6">
             
-            <div class="text-center max-w-xl mx-auto mb-6">
+            <div class="text-center max-w-xl mx-auto mb-8">
                 <span class="text-sushio-red font-bold text-xs uppercase tracking-widest">OFFICIAL RESTAURANT MENU</span>
                 <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-1">SUSHIO MENU</h2>
                 <div class="w-10 h-0.5 bg-sushio-red mx-auto mb-2"></div>
                 <p class="text-gray-400 text-xs">
-                    Scroll down to browse all 3 menu pages or tap any image to zoom in full screen.
+                    Browse our complete menu below or tap any image to zoom in full screen.
                 </p>
             </div>
 
-            <div class="sticky top-[57px] z-30 bg-sushio-dark/95 backdrop-blur-md py-2.5 border-y border-sushio-border mb-6">
-                <div class="flex items-center justify-center gap-2 sm:gap-4 no-scrollbar overflow-x-auto px-2">
-                    <a href="#menu-p1" class="min-touch-target px-4 py-2 rounded-xl bg-sushio-surface border border-sushio-border active:border-sushio-red text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition shrink-0">
-                        <i class="fa-solid fa-book-open text-sushio-red"></i>
-                        <span>Page 1</span>
-                    </a>
-                    <a href="#menu-p2" class="min-touch-target px-4 py-2 rounded-xl bg-sushio-surface border border-sushio-border active:border-sushio-red text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition shrink-0">
-                        <i class="fa-solid fa-book-open text-sushio-red"></i>
-                        <span>Page 2</span>
-                    </a>
-                    <a href="#menu-p3" class="min-touch-target px-4 py-2 rounded-xl bg-sushio-surface border border-sushio-border active:border-sushio-red text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition shrink-0">
-                        <i class="fa-solid fa-book-open text-sushio-red"></i>
-                        <span>Page 3</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="space-y-8">
+            <!-- Seamless Vertical Images Stacked Directly One After Another Without Gaps or Page Boxes -->
+            <div class="flex flex-col gap-0 shadow-2xl rounded-2xl overflow-hidden border border-sushio-border bg-sushio-black">
                 
-                <!-- MENU PAGE 1: ضع مسار صورة صفحة المنيو الأولى في الـ src -->
-                <div id="menu-p1" class="rounded-2xl overflow-hidden border border-sushio-border bg-sushio-card shadow-xl">
-                    <div class="bg-sushio-surface px-4 py-2.5 border-b border-sushio-border flex justify-between items-center text-xs font-bold text-gray-300">
-                        <span class="text-sushio-gold flex items-center gap-1.5">
-                            <i class="fa-solid fa-image"></i> MENU PAGE 01
-                        </span>
-                        <button onclick="openLightbox(1)" class="text-sushio-red active:text-white flex items-center gap-1 p-1 min-touch-target">
-                            <i class="fa-solid fa-expand text-sm"></i>
-                            <span class="text-[11px]">Fullscreen Zoom</span>
-                        </button>
-                    </div>
-                    <div class="cursor-pointer overflow-hidden relative min-h-[400px] img-skeleton" onclick="openLightbox(1)">
-                        <img id="menu-img-1" 
-                             src="2.webp" 
-                             alt="SUSHIO Menu Page 1" 
-                             class="w-full h-auto object-cover block"
-                             loading="lazy"
-                             onload="this.parentElement.classList.remove('img-skeleton')">
-                    </div>
+                <!-- MENU IMAGE 1 -->
+                <div class="relative w-full cursor-pointer img-skeleton" onclick="openLightbox(1)">
+                    <img id="menu-img-1" src="2.webp" alt="SUSHIO Menu Part 1" class="w-full h-auto block object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
                 </div>
 
-                <!-- MENU PAGE 2: ضع مسار صورة صفحة المنيو الثانية في الـ src -->
-                <div id="menu-p2" class="rounded-2xl overflow-hidden border border-sushio-border bg-sushio-card shadow-xl">
-                    <div class="bg-sushio-surface px-4 py-2.5 border-b border-sushio-border flex justify-between items-center text-xs font-bold text-gray-300">
-                        <span class="text-sushio-gold flex items-center gap-1.5">
-                            <i class="fa-solid fa-image"></i> MENU PAGE 02
-                        </span>
-                        <button onclick="openLightbox(2)" class="text-sushio-red active:text-white flex items-center gap-1 p-1 min-touch-target">
-                            <i class="fa-solid fa-expand text-sm"></i>
-                            <span class="text-[11px]">Fullscreen Zoom</span>
-                        </button>
-                    </div>
-                    <div class="cursor-pointer overflow-hidden relative min-h-[400px] img-skeleton" onclick="openLightbox(2)">
-                        <img id="menu-img-2" 
-                             src="3.webp" 
-                             alt="SUSHIO Menu Page 2" 
-                             class="w-full h-auto object-cover block"
-                             loading="lazy"
-                             onload="this.parentElement.classList.remove('img-skeleton')">
-                    </div>
+                <!-- MENU IMAGE 2 -->
+                <div class="relative w-full cursor-pointer img-skeleton" onclick="openLightbox(2)">
+                    <img id="menu-img-2" src="3.webp" alt="SUSHIO Menu Part 2" class="w-full h-auto block object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
                 </div>
 
-                <!-- MENU PAGE 3: ضع مسار صورة صفحة المنيو الثالثة في الـ src -->
-                <div id="menu-p3" class="rounded-2xl overflow-hidden border border-sushio-border bg-sushio-card shadow-xl">
-                    <div class="bg-sushio-surface px-4 py-2.5 border-b border-sushio-border flex justify-between items-center text-xs font-bold text-gray-300">
-                        <span class="text-sushio-gold flex items-center gap-1.5">
-                            <i class="fa-solid fa-image"></i> MENU PAGE 03
-                        </span>
-                        <button onclick="openLightbox(3)" class="text-sushio-red active:text-white flex items-center gap-1 p-1 min-touch-target">
-                            <i class="fa-solid fa-expand text-sm"></i>
-                            <span class="text-[11px]">Fullscreen Zoom</span>
-                        </button>
-                    </div>
-                    <div class="cursor-pointer overflow-hidden relative min-h-[400px] img-skeleton" onclick="openLightbox(3)">
-                        <img id="menu-img-3" 
-                             src="3.webp" 
-                             alt="SUSHIO Menu Page 3" 
-                             class="w-full h-auto object-cover block"
-                             loading="lazy"
-                             onload="this.parentElement.classList.remove('img-skeleton')">
-                    </div>
+                <!-- MENU IMAGE 3 -->
+                <div class="relative w-full cursor-pointer img-skeleton" onclick="openLightbox(3)">
+                    <img id="menu-img-3" src="4.webp" alt="SUSHIO Menu Part 3" class="w-full h-auto block object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
+                </div>
+
+                <div class="relative w-full cursor-pointer img-skeleton" onclick="openLightbox(3)">
+                    <img id="menu-img-3" src="5.webp" alt="SUSHIO Menu Part 3" class="w-full h-auto block object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
+                </div>
+
+                <div class="relative w-full cursor-pointer img-skeleton" onclick="openLightbox(3)">
+                    <img id="menu-img-3" src="6.webp" alt="SUSHIO Menu Part 3" class="w-full h-auto block object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
+                </div>
+
+                <div class="relative w-full cursor-pointer img-skeleton" onclick="openLightbox(3)">
+                    <img id="menu-img-3" src="7.webp" alt="SUSHIO Menu Part 3" class="w-full h-auto block object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
+                </div>
+
+                <div class="relative w-full cursor-pointer img-skeleton" onclick="openLightbox(3)">
+                    <img id="menu-img-3" src="8.webp" alt="SUSHIO Menu Part 3" class="w-full h-auto block object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
+                </div>
+
+                <div class="relative w-full cursor-pointer img-skeleton" onclick="openLightbox(3)">
+                    <img id="menu-img-3" src="9.webp" alt="SUSHIO Menu Part 3" class="w-full h-auto block object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
                 </div>
 
             </div>
 
             <div class="mt-8 text-center p-5 bg-sushio-surface rounded-2xl border border-sushio-border">
                 <h3 class="text-base font-serif font-bold text-white mb-1">Pick your items & order on WhatsApp</h3>
-                <p class="text-xs text-gray-400 mb-3">Send your menu items directly to our chat for fast preparation.</p>
-                <button onclick="openWhatsAppGeneral('Hi SUSHIO 👋\nI looked at the menu images and I would like to place an order!')" class="w-full sm:w-auto min-touch-target bg-sushio-red hover:bg-sushio-redHover text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition">
+                <p class="text-xs text-gray-400 mb-3">Send your menu choices directly to our chat for fast preparation.</p>
+                <button onclick="openWhatsAppGeneral('Hi SUSHIO 👋\nI looked at the menu and I would like to place an order!')" class="w-full sm:w-auto min-touch-target bg-sushio-red hover:bg-sushio-redHover text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition">
                     <i class="fa-brands fa-whatsapp text-base mr-1.5"></i> ORDER ON WHATSAPP
                 </button>
             </div>
@@ -422,7 +382,7 @@
         
         <div class="flex items-center justify-between z-20">
             <span id="lightbox-counter" class="text-xs font-bold text-sushio-gold tracking-widest uppercase flex items-center gap-2">
-                <i class="fa-solid fa-book-open"></i> MENU PAGE 1 OF 3
+                <i class="fa-solid fa-book-open"></i> MENU VIEW 1 OF 3
             </span>
             <div class="flex items-center gap-2">
                 <button onclick="zoomLightbox(1.25)" class="w-10 h-10 rounded-full bg-sushio-surface border border-sushio-border text-white flex items-center justify-center min-touch-target active:bg-sushio-red" aria-label="Zoom In">
@@ -445,7 +405,7 @@
             <button onclick="prevLightboxPage()" class="min-touch-target px-3 py-2 rounded-lg bg-sushio-surface border border-sushio-border text-white text-xs font-bold flex items-center gap-1">
                 <i class="fa-solid fa-chevron-left text-[10px]"></i> Prev
             </button>
-            <button onclick="openWhatsAppGeneral('Hi SUSHIO 👋 I am looking at the menu page and want to order!')" class="bg-sushio-red text-white px-4 py-2.5 rounded-xl font-bold uppercase text-xs min-touch-target">
+            <button onclick="openWhatsAppGeneral('Hi SUSHIO 👋 I am looking at the menu and want to order!')" class="bg-sushio-red text-white px-4 py-2.5 rounded-xl font-bold uppercase text-xs min-touch-target">
                 <i class="fa-brands fa-whatsapp mr-1 text-sm"></i> Order WhatsApp
             </button>
             <button onclick="nextLightboxPage()" class="min-touch-target px-3 py-2 rounded-lg bg-sushio-surface border border-sushio-border text-white text-xs font-bold flex items-center gap-1">
@@ -474,7 +434,6 @@
                     </div>
                 </div>
 
-                <!-- Combo Image: ضع مسار صورة الكومبو هنا في الـ src -->
                 <div class="lg:col-span-5">
                     <div class="relative rounded-2xl overflow-hidden border border-sushio-border img-skeleton">
                         <img id="combo-section-img" src="6.jpg" alt="SUSHIO Combo Boxes" class="w-full h-56 object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
@@ -534,49 +493,24 @@
         </div>
     </section>
 
-    <!-- 9. INSTAGRAM EXPERIENCE SECTION -->
+    <!-- 9. SOCIAL MEDIA EXPERIENCE SECTION (UPDATED: NO IMAGES, JUST INSTAGRAM FEED PROMPT) -->
     <section class="py-12 bg-sushio-dark border-t border-sushio-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8">
-            <div class="text-center mb-8">
-                <span class="text-sushio-red font-bold text-xs uppercase tracking-widest">Community Vibe</span>
-                <h2 class="text-2xl sm:text-4xl font-serif font-bold text-white mt-1">FOLLOW THE SUSHIO EXPERIENCE</h2>
-                <a id="social-ig-feed" href="#" target="_blank" rel="noopener" class="inline-block text-sushio-gold hover:underline text-xs sm:text-sm font-semibold mt-1">
-                    <i class="fa-brands fa-instagram mr-1"></i> @sushio.eg
-                </a>
-            </div>
-
-            <!-- Instagram Grid: ضع مسارات صور الانستجرام الستة في الـ src الخاصة بها -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
-                <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
-                    <img id="ig-img-1" src="" alt="SUSHIO Instagram 1" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
-                </div>
-                <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
-                    <img id="ig-img-2" src="" alt="SUSHIO Instagram 2" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
-                </div>
-                <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
-                    <img id="ig-img-3" src="" alt="SUSHIO Instagram 3" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
-                </div>
-                <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
-                    <img id="ig-img-4" src="" alt="SUSHIO Instagram 4" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
-                </div>
-                <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
-                    <img id="ig-img-5" src="" alt="SUSHIO Instagram 5" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
-                </div>
-                <div class="group relative rounded-xl overflow-hidden aspect-square border border-sushio-border img-skeleton">
-                    <img id="ig-img-6" src="" alt="SUSHIO Instagram 6" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('img-skeleton')">
-                </div>
-            </div>
-
-            <div class="text-center mt-6">
-                <a id="btn-ig-follow" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 min-touch-target bg-sushio-surface hover:bg-sushio-card text-gray-200 border border-sushio-border px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition">
-                    <i class="fa-brands fa-instagram text-sushio-red"></i>
-                    <span>Follow @sushio.eg</span>
+        <div class="max-w-xl mx-auto px-4 sm:px-8 text-center space-y-4">
+            <span class="text-sushio-red font-bold text-xs uppercase tracking-widest">Community Vibe</span>
+            <h2 class="text-2xl sm:text-4xl font-serif font-bold text-white">FOLLOW THE SUSHIO EXPERIENCE</h2>
+            <p class="text-gray-400 text-xs sm:text-sm font-light max-w-md mx-auto">
+                Check out our daily reels, customer moments, and fresh roll drops directly on our Instagram feed!
+            </p>
+            <div class="pt-2">
+                <a id="social-ig-feed" href="https://instagram.com/sushio.eg" target="_blank" rel="noopener" class="inline-flex items-center gap-2 min-touch-target bg-sushio-surface hover:bg-sushio-card text-white border border-sushio-border px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition">
+                    <i class="fa-brands fa-instagram text-sushio-red text-base"></i>
+                    <span>FOLLOW @sushio.eg ON INSTAGRAM</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- 10. LOCATION & HOURS -->
+    <!-- 10. LOCATION & HOURS (UPDATED WITH ACCURATE ASSIUT COORDINATES & BRAND-STYLED DARK MAP) -->
     <section id="location" class="py-12 bg-sushio-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
@@ -594,7 +528,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-white">Address</h4>
-                                <p id="location-address" class="text-xs text-gray-400">Cairo, Egypt (Tap map below for directions)</p>
+                                <p id="location-address" class="text-xs text-gray-400">ASSIUT, Asyut, Egypt (Tap map below for directions)</p>
                             </div>
                         </div>
 
@@ -614,29 +548,33 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-white">Phone Ordering</h4>
-                                <p id="location-phone" class="text-xs text-gray-400">+20 100 000 0000</p>
+                                <p id="location-phone" class="text-xs text-gray-400">+201272207826</p>
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <a id="btn-gmaps" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 min-touch-target bg-sushio-surface hover:bg-sushio-card text-white border border-sushio-border px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition">
+                        <a id="btn-gmaps" href="https://www.google.com/maps/place/27%C2%B011'15.1%22N+31%C2%B011'27.8%22E/@27.187517,31.1932347,17z/data=!3m1!4b1!4m4!3m3!8m2!3d27.187517!4d31.191046!18m1!1e1" target="_blank" rel="noopener" class="inline-flex items-center gap-2 min-touch-target bg-sushio-surface hover:bg-sushio-card text-white border border-sushio-border px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition">
                             <i class="fa-solid fa-map-location-dot text-sushio-red"></i>
                             <span>Open Google Maps</span>
                         </a>
                     </div>
                 </div>
 
+                <!-- Google Maps Frame Styled with Brand Dark Filter -->
                 <div class="lg:col-span-7">
-                    <div class="rounded-2xl border border-sushio-border overflow-hidden bg-sushio-surface h-64 sm:h-80 relative flex flex-col items-center justify-center text-center p-6 bg-grid-pattern">
-                        <div class="w-14 h-14 rounded-full bg-sushio-red/20 border border-sushio-red flex items-center justify-center text-sushio-red text-xl mb-3 animate-bounce">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <h3 class="text-lg font-serif font-bold text-white">SUSHIO RESTAURANT</h3>
-                        <p class="text-xs text-gray-400 mt-1 max-w-xs">Serving sushi rolls for dine-in, takeaway, & express delivery.</p>
-                        <button onclick="openWhatsAppGeneral()" class="mt-4 min-touch-target bg-sushio-red hover:bg-sushio-redHover text-white px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider">
-                            Order Delivery
-                        </button>
+                    <div class="rounded-2xl border border-sushio-border overflow-hidden bg-sushio-surface h-72 sm:h-96 relative">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.8!2d31.191046!3d27.187517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjcubMTEnMTUuMSJOIDMxwrAxMScyNy44IkU!5e0!3m2!1sen!2seg!4v1650000000000!5m2!1sen!2seg" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            class="brand-dark-map"
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="SUSHIO Assiut Location Map">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -649,7 +587,7 @@
             <span class="text-sushio-gold font-bold text-xs uppercase tracking-widest">Satisfy Your Craving</span>
             <h2 class="text-3xl sm:text-5xl font-serif font-black text-white">READY FOR YOUR NEXT ROLL?</h2>
             <p class="text-gray-400 text-xs sm:text-sm max-w-md mx-auto font-light">
-                Your next sushi obsession is just one message away. Send us your order on WhatsApp now!
+                Your next sushi obsession in Assiut is just one message away. Send us your order on WhatsApp now!
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
@@ -658,7 +596,7 @@
                     <span>ORDER ON WHATSAPP</span>
                 </button>
 
-                <a id="btn-final-call" href="tel:+201000000000" class="w-full sm:w-auto min-touch-target bg-sushio-surface hover:bg-sushio-card text-white border border-sushio-border px-8 py-4 rounded-xl font-bold text-xs tracking-wider uppercase transition flex items-center justify-center gap-2">
+                <a id="btn-final-call" href="tel:+201272207826" class="w-full sm:w-auto min-touch-target bg-sushio-surface hover:bg-sushio-card text-white border border-sushio-border px-8 py-4 rounded-xl font-bold text-xs tracking-wider uppercase transition flex items-center justify-center gap-2">
                     <i class="fa-solid fa-phone text-sushio-red"></i>
                     <span>CALL US DIRECTLY</span>
                 </a>
@@ -671,7 +609,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             
             <div class="space-y-3">
-                <!-- Footer Logo: ضع مسار اللوجو هنا أيضاً في الـ src -->
                 <div class="h-8 w-auto flex items-center">
                     <img id="footer-brand-logo" src="logo.jpeg" alt="SUSHIO Logo" class="h-8 w-auto object-contain">
                 </div>
@@ -705,7 +642,7 @@
                 <ul class="space-y-1.5 text-gray-400">
                     <li id="footer-phone-text">Phone: +201272207826</li>
                     <li id="footer-wa-text">WhatsApp: +201272207826</li>
-                    <li id="footer-address-text">Cairo, Egypt</li>
+                    <li id="footer-address-text">ASSIUT, Asyut, Egypt</li>
                 </ul>
             </div>
 
@@ -732,7 +669,7 @@
             <span class="font-arabic font-bold text-sm">Order via WhatsApp</span>
         </button>
 
-        <a id="sticky-call-btn" href="tel:+201000000000" class="min-touch-target w-12 h-12 bg-sushio-surface border border-sushio-border rounded-xl flex items-center justify-center text-white shrink-0 active:scale-95 transition" aria-label="Call Restaurant">
+        <a id="sticky-call-btn" href="tel:+201272207826" class="min-touch-target w-12 h-12 bg-sushio-surface border border-sushio-border rounded-xl flex items-center justify-center text-white shrink-0 active:scale-95 transition" aria-label="Call Restaurant">
             <i class="fa-solid fa-phone text-sushio-red text-base"></i>
         </a>
     </div>
@@ -744,16 +681,15 @@
     </button>
 
     <script>
-        // إعدادات النصوص والروابط الأساسية (رقم الهاتف، العنوان، السوشيال ميديا)
         const SUSHIO_CONFIG = {
             phone: "+201272207826",
             whatsAppNumber: "201272207826",
-            address: "Cairo, Egypt",
-            googleMapsUrl: "https://maps.google.com",
+            address: "ASSIUT, Asyut, Egypt",
+            googleMapsUrl: "https://www.google.com/maps/place/27%C2%B011'15.1%22N+31%C2%B011'27.8%22E/@27.187517,31.1932347,17z/data=!3m1!4b1!4m4!3m3!8m2!3d27.187517!4d31.191046!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MTAxOS4wIKXMDSoASAFQAw%3D%3D",
             openingHours: "Daily: 12:00 PM – 02:00 AM",
             social: {
                 instagram: "https://instagram.com/sushio.eg",
-                facebook: "https://facebook.com/sushio.eg",
+                facebook: "https://www.facebook.com/p/Sushio-61594309083576/",
                 tiktok: "https://tiktok.com/@sushio.eg"
             }
         };
@@ -761,7 +697,6 @@
         let currentLightboxPage = 1;
         let currentZoomLevel = 1;
 
-        document.exports = {};
         document.addEventListener("DOMContentLoaded", function() {
             bindBasicConfig();
             setupMobileDrawer();
@@ -822,7 +757,6 @@
             }
         }
 
-        // Lightbox Functions (تعمل بشكل ديناميكي مع صور المنيو الموجودة في الهيكل HTML)
         function openLightbox(pageIndex) {
             currentLightboxPage = pageIndex;
             currentZoomLevel = 1;
@@ -845,7 +779,7 @@
             }
 
             if (counter) {
-                counter.innerHTML = `<i class="fa-solid fa-book-open"></i> MENU PAGE ${currentLightboxPage} OF 3`;
+                counter.innerHTML = `<i class="fa-solid fa-book-open"></i> MENU VIEW ${currentLightboxPage} OF 3`;
             }
         }
 
@@ -887,7 +821,6 @@
             const defaultMsg = "Hi SUSHIO 👋\nأريد الطلب من المنيو | I'd like to place a sushi order.";
             const finalMsg = customMessage || defaultMsg;
             const encoded = encodeURIComponent(finalMsg);
-            const url = `https://wa.me/${SUSHIO_whatsAppNumber || SUSHIO_CONFIG.whatsAppNumber}?text=${encoded}`;
             window.open(`https://wa.me/${SUSHIO_CONFIG.whatsAppNumber}?text=${encoded}`, "_blank");
         }
     </script>
